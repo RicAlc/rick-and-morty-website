@@ -12,4 +12,12 @@ const getCharacter = async (id, state) => {
   console.log(request.data);
   state(request.data);
 };
-export { allCharacters, getCharacter };
+const getCharacterList = async (page, state) => {
+  const request = await axios.get(
+    `https://rickandmortyapi.com/api/character/?page=${page}`
+  );
+  console.log(request.data);
+  state(request.data);
+};
+
+export { allCharacters, getCharacter, getCharacterList };
