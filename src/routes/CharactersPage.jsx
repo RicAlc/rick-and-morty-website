@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import CharacterList from '../components/CharacterList';
+import HomeBackBtns from '../components/HomeBackBtns';
 import NavigationButtons from '../components/NavigationButtons';
 import { getCharacterList } from '../functions/funciones';
 
@@ -61,5 +62,10 @@ export default function CharactersPage() {
     }
   }
 
-  return <div className='character-list'>{setPageContent(characterList)}</div>;
+  return (
+    <div className='character-list'>
+      <HomeBackBtns />
+      {setPageContent(characterList)}
+    </div>
+  );
 }

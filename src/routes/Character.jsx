@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getCharacter } from '../functions/funciones';
 import CharacterCard from '../components/CharacterCard';
+import HomeBackBtns from '../components/HomeBackBtns';
 
 export default function Character() {
   const [characterInfo, setCharacterInfo] = useState(null);
@@ -15,13 +16,13 @@ export default function Character() {
   }, []);
   return (
     <div>
+      <HomeBackBtns />
       <h1 className='caracter'>Personajes</h1>
       {characterInfo !== null ? (
         <CharacterCard key={characterInfo.id} {...characterInfo} />
       ) : (
         'Cargando...'
       )}
-      <button onClick={() => navigate(-1)}>Volver</button>
     </div>
   );
 }
