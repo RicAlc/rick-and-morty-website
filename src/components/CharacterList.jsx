@@ -1,18 +1,16 @@
 import React from 'react';
+import CharacterPrevCard from './CharacterPrevCard';
 
 export default function CharacterList({ characters }) {
   const characterTable = characters.map((item) => {
     return (
-      <li key={item.id}>
-        <a href={`/api/characters/${item.id}`} key={item.id}>
-          {item.name}
-        </a>
-      </li>
+      <CharacterPrevCard
+        key={item.id}
+        name={item.name}
+        image={item.image}
+        link={`/api/characters/${item.id}`}
+      />
     );
   });
-  return (
-    <div>
-      <ul>{characterTable}</ul>
-    </div>
-  );
+  return <div className='characters-grid'>{characterTable}</div>;
 }
