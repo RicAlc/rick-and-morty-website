@@ -1,21 +1,29 @@
 import axios from 'axios';
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-const allCharacters = async (state) => {
-  const request = await axios.get('https://rickandmortyapi.com/api/character');
-  state(request.data.results);
+const getCharacter = async (id, state, redirect) => {
+  try {
+    const response = await axios.get(
+      `https://rickandmortyapi.com/api/character/${id}`
+    );
+    state(response.data);
+  } catch (error) {
+    console.error(error);
+    await delay(1000);
+    redirect();
+  }
+};
+const getCharacterList = async (page, state, redirect) => {
+  try {
+    const response = await axios.get(
+      `https://rickandmortyapi.com/api/character/?page=${page}`
+    );
+    state(response.data);
+  } catch (error) {
+    console.error(error);
+    await delay(1000);
+    redirect();
+  }
 };
 
-const getCharacter = async (id, state) => {
-  const request = await axios.get(
-    `https://rickandmortyapi.com/api/character/${id}`
-  );
-  state(request.data);
-};
-const getCharacterList = async (page, state) => {
-  const request = await axios.get(
-    `https://rickandmortyapi.com/api/character/?page=${page}`
-  );
-  state(request.data);
-};
-
-export { allCharacters, getCharacter, getCharacterList };
+export { getCharacter, getCharacterList };
