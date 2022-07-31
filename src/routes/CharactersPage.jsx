@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import CharacterList from '../components/CharacterList';
 import HomeBackBtns from '../components/HomeBackBtns';
+import Loading from '../components/Loading';
 import NavigationButtons from '../components/NavigationButtons';
 import { getCharacterList } from '../functions/funciones';
 
@@ -58,7 +59,7 @@ export default function CharactersPage() {
         </>
       );
     } else {
-      return 'Cargando...';
+      return <Loading />;
     }
   }
 
