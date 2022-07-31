@@ -1,13 +1,21 @@
 import React from 'react';
 
-export default function CharacterCard({ id, name, image, status, species }) {
+export default function CharacterCard({
+  id,
+  name,
+  image,
+  status,
+  species,
+  location,
+}) {
   return (
-    <div>
-      <div className='id'>Personaje #{id}</div>
-      <img src={image} alt='Imágen del personaje' />
-      <div className='name'>{name}</div>
-      <div className='status'>Estado: {status}</div>
-      <div className='species'>Especie: {species}</div>
+    <div className='char-card'>
+      <div className='char-card__id'>Personaje #{id}</div>
+      <img src={image} alt='Imágen del personaje' className='char-card__img' />
+      <div className='char-card__name'>{name}</div>
+      <div className='char-card__status'>Estado: {status}</div>
+      <div className='char-card__species'>Especie: {species}</div>
+      <div className='char-card__location'>Ubicación: {location.name}</div>
     </div>
   );
 }
