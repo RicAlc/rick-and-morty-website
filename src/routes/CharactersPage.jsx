@@ -17,13 +17,29 @@ export default function CharactersPage() {
 
   // Comprobacion de paginas sig y ant y asignacion de direccion.
   const setLinks = () => {
+    const pageNum = Number(params.page);
+    // Avanza - retrocede 5 paginas
+    const plusFive =
+      pageNum === characterList.info.pages
+        ? null
+        : pageNum > characterList.info.pages - 5
+        ? `/api/characters/page/${characterList.info.pages}`
+        : `/api/characters/page/${pageNum + 5}`;
+    const lessFive =
+      pageNum === 1
+        ? null
+        : pageNum < 5
+        ? '/api/characters/page/1'
+        : `/api/characters/page/${pageNum - 5}`;
+
+    // Avanza - retrocede 1 pagina
     const nextPage = characterList.info.next
-      ? `/api/characters/page/${Number(params.page) + 1}`
+      ? `/api/characters/page/${pageNum + 1}`
       : null;
     const prevPage = characterList.info.prev
-      ? `/api/characters/page/${Number(params.page) - 1}`
+      ? `/api/characters/page/${pageNum - 1}`
       : null;
-    return { prevPage, nextPage };
+    return { prevPage, nextPage, plusFive, lessFive };
   };
 
   function setPageContent(data) {
@@ -32,7 +48,12 @@ export default function CharactersPage() {
       return (
         <>
           <CharacterList characters={data.results} />
-          <NavigationButtons prev={links.prevPage} next={links.nextPage} />
+          <NavigationButtons
+            prev={links.prevPage}
+            next={links.nextPage}
+            plusFive={links.plusFive}
+            lessFive={links.lessFive}
+          />
         </>
       );
     } else {
