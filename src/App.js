@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Character from './routes/Character';
 import CharactersPage from './routes/CharactersPage';
 import Landing from './routes/Landing';
@@ -14,6 +14,7 @@ function App() {
             path='/api/characters/page/:page'
             element={<CharactersPage />}
           />
+          <Route path='*' element={<Navigate to='/' replace />} />
         </Routes>
       </BrowserRouter>
     </div>
