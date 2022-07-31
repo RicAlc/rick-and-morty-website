@@ -7,6 +7,7 @@ export default function CharacterCard({
   status,
   species,
   location,
+  origin,
 }) {
   return (
     <div className='char-card'>
@@ -16,6 +17,7 @@ export default function CharacterCard({
       <div className='char-card__status'>Estado: {status}</div>
       <div className='char-card__species'>Especie: {species}</div>
       <div className='char-card__location'>Ubicación: {location.name}</div>
+      <div className='char-card__origin'>Lugar de origen: {origin.name}</div>
     </div>
   );
 }
