@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import CharacterList from '../components/CharacterList';
 import NavigationButtons from '../components/NavigationButtons';
 import { getCharacterList } from '../functions/funciones';
@@ -7,9 +7,13 @@ import { getCharacterList } from '../functions/funciones';
 export default function CharactersPage() {
   const [characterList, setCharacterList] = useState(null);
   const params = useParams();
+  const navigate = useNavigate();
+  const goHome = () => navigate('/');
+
   useEffect(() => {
-    getCharacterList(Number(params.page), setCharacterList);
-  }, [params.page]);
+    getCharacterList(Number(params.page), setCharacterList, goHome);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Comprobacion de paginas sig y ant y asignacion de direccion.
   const setLinks = () => {
@@ -32,7 +36,7 @@ export default function CharactersPage() {
         </>
       );
     } else {
-      return null;
+      return 'Cargando...';
     }
   }
 
