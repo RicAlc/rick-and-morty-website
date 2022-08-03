@@ -16,7 +16,7 @@ function App() {
             element={<CharactersPage />}
           />
           <Route
-            path='/api/characters/search/:searchterm'
+            path='/api/characters/search/:searchterm/:page'
             element={<SearchResults />}
           />
           <Route path='*' element={<Navigate to='/' replace />} />
