@@ -18,7 +18,7 @@ export default function Landing() {
     e.preventDefault();
     input === null || input.trim().length === 0
       ? window.alert('Coloca un nombre valido en el buscador')
-      : window.open(`/api/characters/search/${input}`, '_self');
+      : window.open(`/api/characters/search/${input}/1`, '_self');
   };
   const handleChange = (e) => {
     setInput(e.target.value);
@@ -35,7 +35,7 @@ export default function Landing() {
           <PortalSvg width='80%' />
           <img src={rick} alt='Rick' className='rick' />
         </div>
-        <form action=''>
+        <form>
           <fieldset>
             <input
               type='text'
