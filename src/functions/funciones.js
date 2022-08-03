@@ -13,6 +13,21 @@ const getCharacter = async (id, state, redirect) => {
     redirect();
   }
 };
+const getSearchResults = async (name, state, redirect) => {
+  try {
+    console.log(name);
+    const searchTerm = name.replace(/\s/g, '%20');
+    console.log(searchTerm);
+    const response = await axios.get(
+      `https://rickandmortyapi.com/api/character/?name=${searchTerm}`
+    );
+    state(response.data);
+  } catch (error) {
+    console.error(error);
+    await delay(1000);
+    redirect();
+  }
+};
 const getCharacterList = async (page, state, redirect) => {
   try {
     const response = await axios.get(
@@ -26,4 +41,4 @@ const getCharacterList = async (page, state, redirect) => {
   }
 };
 
-export { getCharacter, getCharacterList };
+export { getCharacter, getCharacterList, getSearchResults };
