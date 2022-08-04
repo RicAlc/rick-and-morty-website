@@ -4,18 +4,18 @@ import LinkBtn from './LinkBtn';
 
 export default function FeelingLucky() {
   return (
-    <div className='buttons'>
+    <div className='feeling-lucky'>
       <LinkBtn
         link='/api/characters/page/1'
-        text='Todos los personajes'
+        text='Ver personajes'
         newTab={false}
-        className='buttons__lists-btn'
+        className='feeling-lucky__lists-btn'
       />
       <LinkBtn
         link={`/api/characters/${randomId()}`}
-        text='random btn'
+        text='Aleatorio'
         newTab={false}
-        className='buttons__random-btn'
+        className='feeling-lucky__random-btn'
       />
     </div>
   );

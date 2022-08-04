@@ -1,0 +1,38 @@
+@use '../utils/' as u;
+.feeling-lucky {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: u.rem(10);
+  @include u.breakpoint-down(medium) {
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  &__lists-btn,
+  &__random-btn {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--fs-500);
+    border-radius: u.rem(5);
+    margin: u.rem(10);
+    padding: u.rem(10) u.rem(20);
+    text-transform: uppercase;
+    color: #fff;
+  }
+  &__lists-btn {
+    background-color: #0a95a4;
+    &:hover {
+      background-color: #1ba6b5;
+      filter: drop-shadow(0 0 0.2rem #00c8e0);
+    }
+  }
+  &__random-btn {
+    background-color: #0d9a5a;
+    &:hover {
+      background-color: #19bd73;
+      filter: drop-shadow(0 0 0.4rem #0bd47b);
+    }
+  }
+}

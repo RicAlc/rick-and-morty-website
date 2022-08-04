@@ -1,0 +1,49 @@
+@use '../utils/' as u;
+.illustration {
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  height: 45vh;
+  width: 100%;
+  .rick {
+    right: 15%;
+    height: 100%;
+    position: absolute;
+    filter: drop-shadow(0 0 0.4rem rgb(116, 218, 76));
+    animation: float 6s ease-in-out infinite;
+  }
+  .morty {
+    left: 25%;
+    height: 85%;
+    position: absolute;
+    filter: drop-shadow(0 0 0.4rem rgb(116, 218, 76));
+    animation: float 6.5s ease-in-out infinite;
+  }
+}
+@include u.breakpoint-down(medium) {
+  .illustration {
+    align-items: center;
+    .rick {
+      right: 0;
+      height: 80vw;
+      max-height: u.rem(380);
+    }
+    .morty {
+      left: calc(12vw - 30px);
+      height: 68vw;
+      max-height: u.rem(320);
+    }
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-20px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
