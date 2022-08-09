@@ -17,7 +17,7 @@ const getSearchResults = async (name, page, state, notfound) => {
   try {
     const searchTerm = name.replace(/\s/g, '%20');
     const response = await axios.get(
-      `https://rickandmortyapi.com/api/character/?page=${page}&name=${name}`
+      `https://rickandmortyapi.com/api/character/?page=${page}&name=${searchTerm}`
     );
     state(response.data);
   } catch (error) {
