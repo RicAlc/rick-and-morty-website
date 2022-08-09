@@ -42,9 +42,11 @@ export default function CharactersPage() {
   }
 
   return (
-    <div className='character-list'>
+    <div className='character-list container'>
       <HomeBackBtns />
-      {setPageContent(characterList)}
+      <div className='container d-flex flex-column align-items-center justify-content-center'>
+        {setPageContent(characterList)}
+      </div>
     </div>
   );
 }

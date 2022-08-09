@@ -1,5 +1,6 @@
 @use '../utils/' as u;
 .searchChar {
+  z-index: 99;
   fieldset {
     display: flex;
     border: none;

@@ -31,7 +31,9 @@ export default function SearchResults() {
       );
       return (
         <>
-          {`${searchList.info.count} resultados para la busqueda ${params.searchterm}`}
+          <h2 className='text-light'>
+            {`${searchList.info.count} resultados para la busqueda ${params.searchterm}`}{' '}
+          </h2>
           <CharacterList characters={data.results} />
           <NavigationButtons
             prev={links.prevPage}
@@ -51,9 +53,11 @@ export default function SearchResults() {
   }
 
   return (
-    <div>
+    <div className='search-results container'>
       <HomeBackBtns />
-      {setPageContent(searchList)}
+      <div className='container d-flex flex-column align-items-center justify-content-center'>
+        {setPageContent(searchList)}
+      </div>
     </div>
   );
 }

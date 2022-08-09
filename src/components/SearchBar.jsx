@@ -5,6 +5,7 @@ export default function SearchBar() {
   const [input, setInput] = useState(null);
   const handleSearch = (e) => {
     e.preventDefault();
+    console.log(input);
     input === null || input.trim().length === 0
       ? window.alert('Coloca un nombre valido en el buscador')
       : window.open(`/api/characters/search/${input}/1`, '_self');
@@ -14,13 +15,12 @@ export default function SearchBar() {
   };
 
   return (
-    <form className='searchChar'>
+    <form className='searchChar' autoComplete='off'>
       <fieldset>
         <input
           type='text'
           name='buscar'
           id='buscar'
-          required
           placeholder='Rick Sanchez'
           className='searchChar__input'
           onChange={handleChange}

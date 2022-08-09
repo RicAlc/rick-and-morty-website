@@ -1,28 +1,30 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
+import { GrFormNext, GrNext, GrFormPrevious, GrPrevious } from 'react-icons/gr';
 
 export default function NavigationButtons({ prev, next, plusFive, lessFive }) {
   const openLink = (link) => window.open(link, '_self');
   return (
-    <div className='nav-btns'>
+    <div className='my-3'>
       {lessFive ? (
-        <button onClick={() => openLink(lessFive)} className='nav-btns__button'>
-          Backwards 5
-        </button>
+        <Button className='mx-1 py-1 px-2' onClick={() => openLink(lessFive)}>
+          <GrPrevious></GrPrevious>
+        </Button>
       ) : undefined}
       {prev ? (
-        <button onClick={() => openLink(prev)} className='nav-btns__button'>
-          Anterior
-        </button>
+        <Button className='mx-1 py-1 px-2' onClick={() => openLink(prev)}>
+          <GrFormPrevious></GrFormPrevious>
+        </Button>
       ) : undefined}
       {next ? (
-        <button onClick={() => openLink(next)} className='nav-btns__button'>
-          Siguiente
-        </button>
+        <Button className='mx-1 py-1 px-2' onClick={() => openLink(next)}>
+          <GrFormNext></GrFormNext>
+        </Button>
       ) : undefined}
       {plusFive ? (
-        <button onClick={() => openLink(plusFive)} className='nav-btns__button'>
-          Forward 5
-        </button>
+        <Button className='mx-1 py-1 px-2' onClick={() => openLink(plusFive)}>
+          <GrNext></GrNext>
+        </Button>
       ) : undefined}
     </div>
   );

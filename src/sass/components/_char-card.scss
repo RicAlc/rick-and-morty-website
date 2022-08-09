@@ -1,0 +1,8 @@
+@use '../utils/' as u;
+.char-card__img {
+  @include u.breakpoint-down(medium) {
+    width: 100%;
+    min-width: u.rem(250);
+    max-width: 300;
+  }
+}

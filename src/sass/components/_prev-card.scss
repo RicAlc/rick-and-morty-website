@@ -1,0 +1,55 @@
+@use '../utils/' as u;
+.prev-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  width: u.rem(250);
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  margin: u.rem(10);
+  &:hover > &__parallelogram {
+    background-color: #1c1c1c;
+    box-shadow: rgba(85, 240, 46, 0.4) 3px 3px, rgba(62, 240, 46, 0.3) 6px 6px,
+      rgba(133, 240, 46, 0.2) 9px 9px, rgba(62, 240, 46, 0.1) 12px 12px,
+      rgba(46, 240, 72, 0.05) 15px 15px;
+    transition: all ease 0.3s;
+  }
+  &:hover &__title {
+    transition: all ease 0.3s;
+    color: #fefefe;
+  }
+  &__img {
+    width: u.rem(250);
+    border-radius: 3px;
+  }
+  &__parallelogram {
+    position: absolute;
+    bottom: u.rem(10);
+    left: u.rem(-15);
+    transform: skewX(-25deg);
+    background-color: #fefff8;
+    border-radius: 2px;
+    width: 200px;
+    height: 40px;
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
+      rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    align-items: center;
+  }
+  &__title {
+    padding-left: u.rem(20);
+    padding-right: u.rem(10);
+    transform: skew(25deg);
+    font-size: var(--fs-500);
+    text-transform: uppercase;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: 600;
+    color: #1c1c1c;
+  }
+}

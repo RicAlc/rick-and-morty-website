@@ -16,14 +16,16 @@ export default function Character() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
-    <div>
+    <div className='character-info container'>
       <HomeBackBtns />
-      <h1 className='caracter'>Personajes</h1>
-      {characterInfo !== null ? (
-        <CharacterCard key={characterInfo.id} {...characterInfo} />
-      ) : (
-        <Loading />
-      )}
+      <div className='container d-flex flex-column justify-content-center align-items-center'>
+        <h2 className='text-light'>Personaje #{params.id}</h2>
+        {characterInfo !== null ? (
+          <CharacterCard key={characterInfo.id} {...characterInfo} />
+        ) : (
+          <Loading />
+        )}
+      </div>
     </div>
   );
 }
