@@ -15,9 +15,7 @@ const getCharacter = async (id, state, redirect) => {
 };
 const getSearchResults = async (name, page, state, notfound) => {
   try {
-    console.log(name);
     const searchTerm = name.replace(/\s/g, '%20');
-    console.log(searchTerm);
     const response = await axios.get(
       `https://rickandmortyapi.com/api/character/?page=${page}&name=${name}`
     );
