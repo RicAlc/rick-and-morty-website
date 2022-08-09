@@ -1,4 +1,8 @@
 @use '../utils/' as u;
+.char-card {
+  max-width: u.rem(350);
+  overflow-wrap: break-word;
+}
 .char-card__img {
   @include u.breakpoint-down(medium) {
     width: 100%;
