@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import CharacterList from '../components/CharacterList';
-import HomeBackBtns from '../components/HomeBackBtns';
+import HomeBtn from '../components/HomBtn';
 import Loading from '../components/Loading';
 import NavigationButtons from '../components/NavigationButtons';
 import { getCharacterList } from '../functions/funciones';
@@ -11,12 +11,11 @@ export default function CharactersPage() {
   const [characterList, setCharacterList] = useState(null);
   const params = useParams();
   const navigate = useNavigate();
-  const goHome = () => navigate('/');
-
+  const page = Number(params.page);
   useEffect(() => {
-    getCharacterList(Number(params.page), setCharacterList, goHome);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    const goHome = () => navigate('/');
+    getCharacterList(Number(page), setCharacterList, goHome);
+  }, [page, navigate]);
 
   function setPageContent(data) {
     if (data) {
@@ -43,7 +42,7 @@ export default function CharactersPage() {
 
   return (
     <div className='character-list container'>
-      <HomeBackBtns />
+      <HomeBtn />
       <div className='container d-flex flex-column align-items-center justify-content-center'>
         {setPageContent(characterList)}
       </div>
