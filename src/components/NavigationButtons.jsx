@@ -1,9 +1,13 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { GrFormNext, GrNext, GrFormPrevious, GrPrevious } from 'react-icons/gr';
+import { useNavigate } from 'react-router-dom';
 
 export default function NavigationButtons({ prev, next, plusFive, lessFive }) {
-  const openLink = (link) => window.open(link, '_self');
+  const navigate = useNavigate();
+  const openLink = (link) => {
+    navigate(link, { replace: true });
+  };
   return (
     <div className='my-3'>
       {lessFive ? (

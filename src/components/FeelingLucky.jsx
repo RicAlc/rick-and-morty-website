@@ -8,13 +8,11 @@ export default function FeelingLucky() {
       <LinkBtn
         link='/api/characters/page/1'
         text='Ver personajes'
-        newTab={false}
         className='feeling-lucky__lists-btn'
       />
       <LinkBtn
         link={`/api/characters/${randomId()}`}
         text='Aleatorio'
-        newTab={false}
         className='feeling-lucky__random-btn'
       />
     </div>

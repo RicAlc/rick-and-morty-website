@@ -1,10 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export default function LinkBtn({ text, link, newTab, className }) {
+export default function LinkBtn({ text, link, className }) {
   const navigate = useNavigate();
   const openLink = (link) => {
-    newTab ? window.open(link, '_blank') : navigate(link);
+    navigate(link, { replace: true });
   };
   return (
     <div onClick={() => openLink(link)} className={className}>
