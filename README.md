@@ -25,7 +25,7 @@ Users should be able to:
 ## Links 🔗
 
 - Repo: [Github](https://github.com/RicAlc/rick-and-morty-website)
-- Site URL: in progress
+- Site URL: [Rick and Morty characters](https://ricalc-rickandmorty.netlify.app/)
 
 ## Built with 🧰 🛠️
 
