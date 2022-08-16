@@ -26,13 +26,13 @@ export default function CharactersPage() {
       );
       return (
         <>
-          <CharacterList characters={data.results} />
           <NavigationButtons
             prev={links.prevPage}
             next={links.nextPage}
             plusFive={links.plusFive}
             lessFive={links.lessFive}
           />
+          <CharacterList characters={data.results} />
         </>
       );
     } else {

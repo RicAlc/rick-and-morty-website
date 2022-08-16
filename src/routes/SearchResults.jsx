@@ -30,16 +30,16 @@ export default function SearchResults() {
       );
       return (
         <>
-          <h2 className='text-light text-center'>
+          <h3 className='text-light text-center my-1'>
             {`${searchList.info.count} resultados para la busqueda ${params.searchterm}`}{' '}
-          </h2>
-          <CharacterList characters={data.results} />
+          </h3>
           <NavigationButtons
             prev={links.prevPage}
             next={links.nextPage}
             plusFive={links.plusFive}
             lessFive={links.lessFive}
           />
+          <CharacterList characters={data.results} />
         </>
       );
     } else {
